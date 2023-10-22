@@ -2,14 +2,14 @@
 
 /**
  * more - checks whether i is greater than j
- * @i: integer i
- * @j: integer j
+ * @i: listint_t i
+ * @j: listint_t j
  *
  * Return: 1 if true otherwise 0
  */
-int more(int i, int j)
+int more(listint_t *i, listint_t *j)
 {
-	return (i > j);
+	return (*i > *j);
 }
 
 /**
