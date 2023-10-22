@@ -9,7 +9,7 @@
  */
 int more(listint_t *i, listint_t *j)
 {
-	return (i > j);
+	return (*i > *j);
 }
 
 /**
