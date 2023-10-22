@@ -6,7 +6,7 @@
  * @list: listint_t list
  * @node: listint_t new node
  */
-int sorted_insert(listint_t **list, listint_t *node)
+void sorted_insert(listint_t **list, listint_t *node)
 {
 	listint_t *current;
 
@@ -30,11 +30,12 @@ int sorted_insert(listint_t **list, listint_t *node)
 
 		node->next = current->next;
 
-		if (current>next != NULL)
+		if (current->next != NULL)
 			node->next->prev = node;
 
 		current->next = node;
 		node->prev = current;
+	}
 }
 
 /**
