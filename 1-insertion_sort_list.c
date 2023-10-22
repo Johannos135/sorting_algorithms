@@ -7,9 +7,9 @@
  *
  * Return: 1 if true otherwise 0
  */
-int more(listint_t *i, listint_t *j)
+int more(int i, int j)
 {
-	return (*i > *j);
+	return (i > j);
 }
 
 /**
