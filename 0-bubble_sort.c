@@ -22,7 +22,7 @@ int more(int i, int j)
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
-	size_t temp, swapped = 1;
+	int temp, swapped = 1;
 
 	for (i = 0; i < (size - 1) && swapped; i++)
 	{
