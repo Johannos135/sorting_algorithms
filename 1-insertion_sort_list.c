@@ -24,9 +24,13 @@ void sorted_insert(listint_t **list, listint_t *node)
 	{
 		current = *list;
 
+		print_list(current);
+
 		while (current->next != NULL &&
 				current->next->n < node->n)
+		{
 			current = current->next;
+		}
 
 		node->next = current->next;
 
@@ -53,11 +57,12 @@ void insertion_sort_list(listint_t **list)
 	{
 		listint_t *next = curr->next;
 
-		curr->prev = curr->next = NULL;
+		print_list(sorted);
+
+		curr->prev = NULL;
+		curr->next = NULL;
 
 		sorted_insert(&sorted, curr);
-
-		print_list(*list);
 
 		curr = next;
 	}
