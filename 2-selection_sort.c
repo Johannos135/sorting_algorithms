@@ -27,8 +27,8 @@ void selection_sort(int *array, size_t size)
 
 		if (x != max)
 		{
-			temp = array[size - 1 - x];
-			array[size - 1 - x] = array[max];
+			temp = array[x];
+			array[x] = array[max];
 			array[max] = temp;
 			print_array(array, size);
 		}
