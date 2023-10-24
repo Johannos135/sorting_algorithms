@@ -17,16 +17,20 @@ void selection_sort(int *array, size_t size)
 	{
 		max = x;
 
-		for (y = 1; y < size - 1 - x; y++)
+		for (y = x + 1; y < size; y++)
 		{
-			if (array[y] > array[max])
+			if (array[max] > array[y])
 			{
 				max = y;
 			}
 		}
-		temp = array[size - 1 - x];
-		array[size - 1 - x] = array[max];
-		array[max] = temp;
-		print_array(array, size);
+
+		if (x != max)
+		{
+			temp = array[size - 1 - x];
+			array[size - 1 - x] = array[max];
+			array[max] = temp;
+			print_array(array, size);
+		}
 	}
 }
