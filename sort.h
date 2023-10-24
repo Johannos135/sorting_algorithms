@@ -26,5 +26,7 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void _quick(int *arr, int low, int high, int size);
 void quick_sort(int *array, size_t size);
+void _fun_sort(int *a, int size, int n);
+void shell_sort(int *array, size_t size);
 
 #endif
