@@ -1,12 +1,12 @@
 #include "sort.h"
 #include <stdio.h>
+
 /**
  * swap_nums - swaps numbers
  *
  * @arr: input array
- * @a: first index
- * @b: second index
- * Return: no return
+ * @a: a index
+ * @b: b index
  */
 void swap_nums(int *arr, int a, int b)
 {
@@ -16,13 +16,12 @@ void swap_nums(int *arr, int a, int b)
 }
 
 /**
- * recursion_heap - recursion that builds the max heap tree
+ * recursion_heap - recursion heap
  *
  * @arr: input array
  * @i: index number
  * @size: size of the array
  * @limit: limit of the array
- * Return: no return
  */
 void recursion_heap(int *arr, int i, size_t size, int limit)
 {

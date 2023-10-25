@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * print_data - prints all the data
@@ -64,6 +64,7 @@ void merge(int *ar, int low, int middle, int high, int *buff)
 
 	print_data("Done", ar, low, high);
 }
+
 /**
  * _topdown - top-down the merge
  *
