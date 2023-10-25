@@ -28,5 +28,10 @@ void _quick(int *arr, int low, int high, int size);
 void quick_sort(int *array, size_t size);
 void _fun_sort(int *a, int size, int n);
 void shell_sort(int *array, size_t size);
+void swap_list(listint_t **ptr1, listint_t **ptr2, int n);
+void topup_sort(listint_t **ptr, listint_t **limit, listint_t **list);
+void lower_sort(listint_t **ptr, listint_t **limit, listint_t **list);
+void cocktail_sort_list(listint_t **list);
+void counting_sort(int *array, size_t size);
 
 #endif
