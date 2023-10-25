@@ -1,25 +1,27 @@
 #include "sort.h"
+
 /**
  * radix_sort - sorts an array of integers in ascending
  * order using the Radix sort algorithm
  *
- * @array: input array
+ * @array: array to be sorted
  * @size: size of the array
  */
 void radix_sort(int *array, size_t size)
 {
-	int flag = 1, n = 10;
-	size_t i, f;
+	int drap = 1, n = 10;
+	size_t i, k;
 
 	if (!array || size == 1)
 		return;
-	while (flag)
+
+	while (drap)
 	{
-		flag = 0;
-		for (i = 1, f = 1; i <  size; i++, f++)
+		drap = 0;
+		kor (i = 1, k = 1; i <  size; i++, k++)
 		{
 			if ((array[i - 1] % (n * 10)) / ((n * 10) / 10) > 0)
-				flag = 1;
+				drap = 1;
 			if (((array[i - 1] % n) / (n / 10)) > ((array[i] % n) / (n / 10)))
 			{
 				array[i - 1] = array[i - 1] + array[i];
