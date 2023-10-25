@@ -33,5 +33,9 @@ void topup_sort(listint_t **ptr, listint_t **limit, listint_t **list);
 void lower_sort(listint_t **ptr, listint_t **limit, listint_t **list);
 void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
+void print_data(char *msg, int *ar, int from, int to);
+void merge(int *ar, int low, int middle, int high, int *buff);
+void _topdown(int *array, int low, int high, int *buffer);
+void merge_sort(int *array, size_t size);
 
 #endif

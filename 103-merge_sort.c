@@ -1,14 +1,15 @@
-#include "sort.h"
 #include <stdio.h>
+#include "sort.h"
+
 /**
- * print_data - print data
- * @msg: message
- * @a: array
- * @from: from
- * @to: to
- * Return: no return
+ * print_data - prints all the data
+ *
+ * @msg: message to print
+ * @ar: array to return
+ * @from: input
+ * @to: output
  */
-void print_data(char *msg, int *a, int from, int to)
+void print_data(char *msg, int *ar, int from, int to)
 {
 	char *sep;
 	int i;
@@ -18,80 +19,77 @@ void print_data(char *msg, int *a, int from, int to)
 
 	for (i = from; i <= to; i++)
 	{
-		printf("%s%d", sep, a[i]);
+		printf("%s%d", sep, ar[i]);
 		sep = ", ";
 	}
 	printf("\n");
 }
 
 /**
- * merge - Auxiliar function for
- * Merge sort algorithm
- * @a: array
+ * merge - helper function
+ *
+ * @ar: array
  * @low: low index
  * @middle: middle
  * @high: high index
  * @buff: buffer
- * Return: no return
  */
-void merge(int *a, int low, int middle, int high, int *buff)
+void merge(int *ar, int low, int middle, int high, int *buff)
 {
-	int lo, lm, i;
+	int var_low, var_midl, i;
 
-	lo = i = low;
-	lm = middle + 1;
+	var_low = i = low;
+	var_midl = middle + 1;
 
 	printf("Merging...\n");
-	print_data("left", a, low, middle);
-	print_data("right", a, middle + 1, high);
+	print_data("left", ar, low, middle);
+	print_data("right", ar, middle + 1, high);
 
-	while (lo <= middle && lm <= high)
+	while (var_low <= middle && var_midl <= high)
 	{
-		if (a[lo] < a[lm])
-			buff[i++] = a[lo++];
+		if (ar[var_low] < ar[var_midl])
+			buff[i++] = ar[var_low++];
 		else
-			buff[i++] = a[lm++];
+			buff[i++] = ar[var_midl++];
 	}
 
-	while (lo <= middle)
-		buff[i++] = a[lo++];
+	while (var_low <= middle)
+		buff[i++] = ar[var_low++];
 
-	while (lm <= high)
-		buff[i++] = a[lm++];
+	while (var_midl <= high)
+		buff[i++] = ar[var_midl++];
 
 	for (i = low; i <= high; i++)
-		a[i] = buff[i];
+		ar[i] = buff[i];
 
-	print_data("Done", a, low, high);
+	print_data("Done", ar, low, high);
 }
 /**
- * msort -Auxiliar function for
- * Merge sort algorithm
- * @array: array
+ * _topdown - top-down the merge
+ *
+ * @array: array to sort
  * @low: low index
  * @high: high index
  * @buffer: buffer
- * Return: no return
  */
-void msort(int *array, int low, int high, int *buffer)
+void _topdown(int *array, int low, int high, int *buffer)
 {
 	int midle;
 
 	if (low < high)
 	{
 		midle = (low + high - 1) / 2;
-		msort(array, low, midle, buffer);
-		msort(array, midle + 1, high, buffer);
+		_topdown(array, low, midle, buffer);
+		_topdown(array, midle + 1, high, buffer);
 		merge(array, low, midle, high, buffer);
 	}
 }
 /**
- * merge_sort -Sorts an arrayof integers
- * in ascending order using the
- * Merge sort algorithm
+ * merge_sort - function that sorts an array of integers
+ * in ascending order using the merge sort algorithm
+ *
  * @array: array
  * @size: size
- * Return: no return
  */
 void merge_sort(int *array, size_t size)
 {
@@ -100,6 +98,6 @@ void merge_sort(int *array, size_t size)
 	buffer = malloc(sizeof(int) * size);
 	if (!buffer)
 		return;
-	msort(array, 0, size - 1, buffer);
+	_topdown(array, 0, size - 1, buffer);
 	free(buffer);
 }
